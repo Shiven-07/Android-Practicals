@@ -1,0 +1,108 @@
+Subject: Android Programming Practical                                           TYBScIT
+
+
+     android:layout_width="wrap_content"
+
+     android:layout_height="wrap_content"
+
+     android:text="Below Title"
+
+     android:layout_below="@id/title"
+
+    android:layout_marginTop="20dp"/>
+
+  <Button
+
+     android:layout_width="wrap_content"
+
+     android:layout_height="wrap_content"
+
+     android:text="Right of Button"
+
+     android:layout_toRightOf="@id/btn1"
+
+     android:layout_below="@id/title"
+
+     android:layout_marginLeft="20dp" />
+
+</RelativeLayout>
+
+ 3. Table Layout
+
+activity_table.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+  android:layout_width="match_parent"
+
+  android:layout_height="match_parent"
+
+  android:padding="20dp">
+
+  <TableRow>
+
+    <TextView
+
+       android:text="Name"
+
+       android:padding="10dp" />
+
+     <EditText
+
+       android:hint="Enter name"
+
+       android:padding="10dp"/>
+
+  </TableRow>
+
+  <TableRow>
+
+
+
+
+ pg. 17
+
+Subject: Android Programming Practical                                           TYBScIT
+
+
+    <TextView
+
+       android:text="Email"
+
+       android:padding="10dp" />
+
+     <EditText
+
+       android:hint="Enter email"
+
+       android:padding="10dp"/>
+
+  </TableRow>
+
+  <TableRow>
+
+    <Button
+
+       android:text="Submit"
+
+       android:layout_span="2"/>
+
+  </TableRow>
+
+</TableLayout>
+
+
+
+
+
+ pg. 18
+
+Subject: Android Programming Practical                                           TYBScIT
+
+
+
+
+
+ pg. 19

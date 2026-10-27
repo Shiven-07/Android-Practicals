@@ -1,0 +1,127 @@
+Subject: Android Programming Practical                                           TYBScIT
+
+
+2.Android Resources: Colors, Themes, Strings, Drawables, Dimensions, Images
+AIM:To study and implement Android Resources such as Color, Theme, String, Drawable,
+Dimension, and Image in an Android application.
+THEORY:
+Android resources are external values used in an app to define UI components without
+hardcoding. They help maintain consistency, reduce errors, and support localization.
+Types of Android Resources Used in This Practical
+    1.  Color Resource (colors.xml)
+       Stores all color codes for use across the application.
+    2.  String Resource (strings.xml)
+       Stores text messages, titles, labels, etc., making localization easier.
+    3.  Drawable Resource (drawable/)
+       Stores images (PNG, JPG, WebP) and XML shapes (rectangles, circles, gradients).
+    4.  Dimension Resource (dimens.xml)
+      Used to store sizes such as padding, margin, text size.
+    5.  Theme/Style Resource (styles.xml)
+       Defines consistent UI styles.
+    6. Image Resource
+      Images stored under drawable folders.
+1. colors.xml
+File: res/values/colors.xml
+<resources>
+  <color name="appPrimary">#6200EE</color>
+  <color name="appSecondary">#03DAC5</color>
+  <color name="white">#FFFFFF</color>
+  <color name="black">#000000</color>
+</resources>
+2. strings.xml
+File: res/values/strings.xml
+<resources>
+  <string name="app_name">Resource Demo App</string>
+  <string name="hello_text">Hello World using Android Resources!</string>
+</resources>
+3. dimens.xml
+File: res/values/dimens.xml
+<resources>
+  <dimen name="text_large">24sp</dimen>
+  <dimen name="padding_normal">20dp</dimen>
+  <dimen name="image_size">150dp</dimen>
+</resources>
+4. styles.xml (Theme)
+File: res/values/styles.xml
+
+
+
+
+
+ pg. 3
+
+Subject: Android Programming Practical                                           TYBScIT
+
+
+<resources>
+  <style name="AppTheme" parent="Theme.MaterialComponents.DayNight">
+    <item name="colorPrimary">@color/appPrimary</item>
+    <item name="colorAccent">@color/appSecondary</item>
+    <item name="android:padding">@dimen/padding_normal</item>
+   </style>
+</resources>
+5. Drawable Image
+Place any image (e.g., logo.png) inside:
+app → res → drawable/
+6. Drawable Shape (rounded_box.xml)
+File: res/drawable/rounded_box.xml
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+  android:shape="rectangle">
+  <solid android:color="@color/appSecondary" />
+  <corners android:radius="12dp" />
+</shape>
+7. Layout File (activity_main.xml)
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+   android:orientation="vertical"
+  android:gravity="center"
+  android:padding="@dimen/padding_normal">
+  <ImageView
+    android:id="@+id/imageView"
+    android:layout_width="@dimen/image_size"
+     android:layout_height="@dimen/image_size"
+    android:src="@drawable/logo" />
+  <TextView
+     android:id="@+id/textView"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:text="@string/hello_text"
+     android:textColor="@color/appPrimary"
+     android:textSize="@dimen/text_large"
+    android:paddingTop="20dp" />
+  <Button
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:text="Click Me"
+    android:background="@drawable/rounded_box"
+
+
+
+
+ pg. 4
+
+Subject: Android Programming Practical                                           TYBScIT
+
+
+     android:textColor="@color/black"
+     android:padding="10dp"/>
+</LinearLayout>
+8. Java File (MainActivity.java)
+package com.example.resourcedemo;
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+public class MainActivity extends AppCompatActivity {
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+     super.onCreate(savedInstanceState);
+     setContentView(R.layout.activity_main);
+  }
+}
+
+
+
+
+
+ pg. 5

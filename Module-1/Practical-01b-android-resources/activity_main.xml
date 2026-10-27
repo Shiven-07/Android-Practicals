@@ -1,0 +1,37 @@
+<!-- Extracted from PDF; review against Original-Pages.pdf before use. -->
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+   android:orientation="vertical"
+  android:gravity="center"
+  android:padding="@dimen/padding_normal">
+  <ImageView
+    android:id="@+id/imageView"
+    android:layout_width="@dimen/image_size"
+     android:layout_height="@dimen/image_size"
+    android:src="@drawable/logo" />
+  <TextView
+     android:id="@+id/textView"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:text="@string/hello_text"
+     android:textColor="@color/appPrimary"
+     android:textSize="@dimen/text_large"
+    android:paddingTop="20dp" />
+  <Button
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:text="Click Me"
+    android:background="@drawable/rounded_box"
+
+
+
+
+
+Subject: Android Programming Practical                                           TYBScIT
+
+
+     android:textColor="@color/black"
+     android:padding="10dp"/>
+</LinearLayout>

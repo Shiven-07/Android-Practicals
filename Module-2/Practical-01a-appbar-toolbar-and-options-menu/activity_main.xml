@@ -1,0 +1,44 @@
+<!-- Extracted from PDF; review against Original-Pages.pdf before use. -->
+<?xml version="1.0" encoding="utf-8"?>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+       xmlns:app="http://schemas.android.com/apk/res-auto"
+
+       android:orientation="vertical"
+
+       android:layout_width="match_parent"
+
+       android:layout_height="match_parent">
+
+       <androidx.appcompat.widget.Toolbar
+
+         android:id="@+id/toolbar"
+
+       android:layout_width="match_parent"
+
+
+
+Subject: Android Programming Practical                                           TYBScIT
+
+
+
+  android:layout_height="?attr/actionBarSize"
+
+  android:background="@color/purple_500"
+
+     android:title="UI Components Demo"
+
+     android:titleTextColor="@android:color/white"
+
+    app:titleTextAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+  <FrameLayout
+
+     android:id="@+id/frameContainer"
+
+     android:layout_width="match_parent"
+
+     android:layout_height="match_parent"/>
+
+</LinearLayout>

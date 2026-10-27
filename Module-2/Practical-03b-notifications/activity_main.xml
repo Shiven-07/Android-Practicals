@@ -1,0 +1,57 @@
+<!-- Extracted from PDF; review against Original-Pages.pdf before use. -->
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+   android:orientation="vertical"
+
+  android:gravity="center"
+
+  android:padding="20dp"
+
+  android:layout_width="match_parent"
+
+  android:layout_height="match_parent">
+
+  <Button
+
+     android:id="@+id/btnStart"
+
+     android:text="Start Service"
+
+     android:layout_width="match_parent"
+
+     android:layout_height="wrap_content"/>
+
+  <Button
+
+     android:id="@+id/btnStop"
+
+     android:text="Stop Service"
+
+    android:layout_marginTop="10dp"
+
+     android:layout_width="match_parent"
+
+     android:layout_height="wrap_content"/>
+
+
+
+
+
+Subject: Android Programming Practical                                           TYBScIT
+
+
+  <Button
+
+     android:id="@+id/btnNotify"
+
+     android:text="Send Notification"
+
+    android:layout_marginTop="10dp"
+
+     android:layout_width="match_parent"
+
+     android:layout_height="wrap_content"/>
+
+</LinearLayout>

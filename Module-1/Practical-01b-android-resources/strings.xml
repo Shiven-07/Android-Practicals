@@ -1,0 +1,6 @@
+<!-- Extracted from PDF; review against Original-Pages.pdf before use. -->
+File: res/values/strings.xml
+<resources>
+  <string name="app_name">Resource Demo App</string>
+  <string name="hello_text">Hello World using Android Resources!</string>
+</resources>

@@ -1,0 +1,25 @@
+<!-- Extracted from PDF; review against Original-Pages.pdf before use. -->
+<?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="vertical"
+      android:padding="15dp">
+
+      <TextView
+        android:id="@+id/txtName"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:textSize="20sp"
+         android:textStyle="bold" />
+
+      <TextView
+         android:id="@+id/txtCourse"
+         android:layout_width="match_parent"
+
+     Subject: Android Programming Practical                                           TYBScIT
+
+         android:layout_height="wrap_content"
+         android:textSize="16sp" />
+
+</LinearLayout>

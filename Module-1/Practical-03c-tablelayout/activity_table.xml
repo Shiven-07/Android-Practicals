@@ -1,0 +1,68 @@
+<!-- Extracted from PDF; review against Original-Pages.pdf before use. -->
+<?xml version="1.0" encoding="utf-8"?>
+
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+  android:layout_width="match_parent"
+
+  android:layout_height="match_parent"
+
+  android:padding="20dp">
+
+  <TableRow>
+
+    <TextView
+
+       android:text="Name"
+
+       android:padding="10dp" />
+
+     <EditText
+
+       android:hint="Enter name"
+
+       android:padding="10dp"/>
+
+  </TableRow>
+
+  <TableRow>
+
+
+
+
+
+Subject: Android Programming Practical                                           TYBScIT
+
+
+    <TextView
+
+       android:text="Email"
+
+       android:padding="10dp" />
+
+     <EditText
+
+       android:hint="Enter email"
+
+       android:padding="10dp"/>
+
+  </TableRow>
+
+  <TableRow>
+
+    <Button
+
+       android:text="Submit"
+
+       android:layout_span="2"/>
+
+  </TableRow>
+
+</TableLayout>
+
+
+
+
+
+
+Subject: Android Programming Practical                                           TYBScIT

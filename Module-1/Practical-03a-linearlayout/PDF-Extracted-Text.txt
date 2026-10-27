@@ -1,0 +1,123 @@
+   Subject: Android Programming Practical                                           TYBScIT
+
+                              Practical No. 3
+
+
+Basic Layout Management
+  1. Develop an Android application using LinearLayout (Horizontal and Vertical) to design
+     structured UI.
+  2. Develop an Android application using RelativeLayout to align UI components
+     dynamically.
+  3. Develop an Android application using TableLayout to design a structured
+     Login/Registration Form.
+
+
+  AIM:To Study LinearLayout, RelativeLayout, TableLayout
+
+ THEORY
+
+  Android Layouts define the structure of UI elements on the screen. Each layout arranges
+  elements differently.
+
+   1. Linear Layout
+
+  Arranges elements vertically or horizontally.
+
+   2. Relative Layout
+
+   Positions views in relation to parent or other views.
+
+   3. Table Layout
+  Arranges elements in rows and columns similar to tables
+
+
+
+    1. Linear Layout
+
+   activity_linear.xml
+
+  <?xml version="1.0" encoding="utf-8"?>
+
+  <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+     android:layout_width="match_parent"
+
+     android:layout_height="match_parent"
+
+     android:orientation="vertical"
+
+     android:padding="20dp">
+
+    <TextView
+
+       android:layout_width="wrap_content"
+
+
+       android:layout_height="wrap_content"
+
+       android:text="Linear Layout Example"
+    pg. 15
+
+Subject: Android Programming Practical                                           TYBScIT
+
+     android:textSize="22sp"
+
+    android:padding="10dp" />
+
+  <Button
+
+     android:layout_width="match_parent"
+
+     android:layout_height="wrap_content"
+
+     android:text="Button 1" />
+
+  <Button
+
+     android:layout_width="match_parent"
+
+     android:layout_height="wrap_content"
+
+     android:text="Button 2"
+
+    android:layout_marginTop="10dp" />
+
+</LinearLayout>
+
+
+
+2. Relative Layout
+
+activity_relative.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+  android:layout_width="match_parent"
+
+  android:layout_height="match_parent"
+
+  android:padding="20dp">
+
+  <TextView
+
+     android:id="@+id/title"
+
+     android:layout_width="wrap_content"
+
+     android:layout_height="wrap_content"
+
+     android:text="Relative Layout Example"
+
+     android:textSize="22sp"/>
+
+  <Button
+
+     android:id="@+id/btn1"
+
+
+
+
+
+ pg. 16

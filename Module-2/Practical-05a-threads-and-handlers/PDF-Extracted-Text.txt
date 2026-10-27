@@ -1,0 +1,95 @@
+     Subject: Android Programming Practical                                           TYBScIT
+
+                                Practical No. 5
+
+
+Concurrency, Media and Security
+1. Develop an Android application demonstrating Threads and Handlers for background
+processing.
+2. Develop an Android application implementing Media APIs and Telephone APIs.
+3. Develop an Android application implementing Runtime Permissions and security handling in
+AndroidManifest.xml.
+
+1. Develop an Android application demonstrating Threads and Handlers for background
+processing.
+
+
+    MainActivity.java
+
+    package com.example.myapplication;
+    import android.annotation.SuppressLint;
+    import android.os.Bundle;
+    import android.os.Handler;
+    import android.os.Message;
+    import android.widget.TextView;
+    import androidx.appcompat.app.AppCompatActivity;
+    public class MainActivity extends AppCompatActivity {
+      TextView textView;
+      Handler handler;
+       @SuppressLint("MissingInflatedId")
+      @Override
+       protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+         setContentView(R.layout.activity_main);
+         textView = findViewById(R.id.textView);
+         handler = new Handler() {
+          @Override
+            public void handleMessage(Message msg) {
+             textView.setText("Count : " + msg.arg1);
+          }
+          };
+        Thread thread = new Thread(new Runnable() {
+          @Override
+            public void run() {
+                for(int i=1;i<=10;i++){
+              Message message = new Message();
+               message.arg1 = i;
+                handler.sendMessage(message);
+                  try {
+                   Thread.sleep(1000);
+      pg. 68
+
+Subject: Android Programming Practical                                           TYBScIT
+
+
+          } catch (InterruptedException e) {
+               e.printStackTrace();
+          }
+        }
+      }
+
+
+      });
+      thread.start(); }
+}
+
+activity_main.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:gravity="center"
+   android:orientation="vertical">
+  <TextView
+     android:id="@+id/textView"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:text="Thread Example"
+     android:textSize="25sp"/>
+</LinearLayout>
+
+
+
+
+
+ pg. 69
+
+Subject: Android Programming Practical                                           TYBScIT
+
+
+
+
+
+ pg. 70

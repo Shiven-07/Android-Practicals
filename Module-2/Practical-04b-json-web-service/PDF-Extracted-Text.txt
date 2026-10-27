@@ -1,0 +1,207 @@
+Subject: Android Programming Practical                                           TYBScIT
+
+   2.Programming Network Communications and Services (JSON)
+
+AIM:To study and implement Programming Network Communications and Services (JSON)
+
+      Connect to Internet
+
+       Fetch JSON data from server
+
+       Parse JSON
+
+       Display data in TextView
+
+We will fetch JSON from:
+ https://jsonplaceholder.typicode.com/users
+
+Add Internet Permission
+
+Open AndroidManifest.xml
+
+Inside <manifest> tag.
+
+<uses-permission android:name="android.permission.INTERNET"/>
+
+activity_main.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+  android:layout_width="match_parent"
+
+  android:layout_height="match_parent">
+
+  <LinearLayout
+
+     android:layout_width="match_parent"
+
+     android:layout_height="wrap_content"
+
+     android:orientation="vertical"
+
+    android:padding="20dp">
+
+    <Button
+
+       android:id="@+id/btnFetch"
+
+       android:layout_width="match_parent"
+
+       android:layout_height="wrap_content"
+
+       android:text="Fetch JSON Data"/>
+
+
+
+
+
+ pg. 64
+
+Subject: Android Programming Practical                                           TYBScIT
+
+
+    <TextView
+
+       android:id="@+id/tvResult"
+
+       android:layout_width="match_parent"
+
+       android:layout_height="wrap_content"
+
+       android:textSize="16sp"
+
+       android:paddingTop="20dp"/>
+
+  </LinearLayout>
+
+</ScrollView>
+
+MainActivity.java
+
+package com.example.jsonexample;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+
+import android.widget.Button;
+
+import android.widget.TextView;
+
+import org.json.JSONArray;
+
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+
+import java.io.InputStreamReader;
+
+import java.net.HttpURLConnection;
+
+import java.net.URL;
+
+public class MainActivity extends AppCompatActivity {
+
+  Button btnFetch;
+
+  TextView tvResult;
+
+  @Override
+
+  protected void onCreate(Bundle savedInstanceState) {
+
+     super.onCreate(savedInstanceState);
+
+     setContentView(R.layout.activity_main);
+
+     btnFetch = findViewById(R.id.btnFetch);
+
+     tvResult = findViewById(R.id.tvResult);
+
+
+
+
+ pg. 65
+
+Subject: Android Programming Practical                                           TYBScIT
+
+
+     btnFetch.setOnClickListener(v -> fetchJSON());
+
+  }
+
+   private void fetchJSON() {
+
+    new Thread(() -> {
+
+        try {
+
+      URL url = new URL("https://jsonplaceholder.typicode.com/users");
+
+        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+
+         conn.setRequestMethod("GET");
+
+         BufferedReader reader = new BufferedReader(
+
+           new InputStreamReader(conn.getInputStream()));
+
+          StringBuilder result = new StringBuilder();
+
+          String line;
+
+         while ((line = reader.readLine()) != null) {
+
+             result.append(line);
+
+        }
+
+        JSONArray jsonArray = new JSONArray(result.toString());
+
+          StringBuilder displayData = new StringBuilder();
+
+          for (int i = 0; i < jsonArray.length(); i++) {
+
+          JSONObject obj = jsonArray.getJSONObject(i);
+
+           displayData.append("Name: ")
+
+                 .append(obj.getString("name")).append("\n");
+
+           displayData.append("Email: ")
+
+                  .append(obj.getString("email")).append("\n\n");
+
+        }
+
+         runOnUiThread(() ->
+
+               tvResult.setText(displayData.toString()));
+
+      } catch (Exception e) {
+
+          e.printStackTrace();
+
+      }
+
+
+
+
+ pg. 66
+
+Subject: Android Programming Practical                                           TYBScIT
+
+
+}
+
+).start();
+
+  }}
+
+
+
+
+
+ pg. 67

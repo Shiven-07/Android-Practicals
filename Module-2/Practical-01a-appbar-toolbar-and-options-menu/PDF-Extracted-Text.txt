@@ -1,0 +1,281 @@
+     Subject: Android Programming Practical                                           TYBScIT
+
+                         Practical No 1
+
+
+Menus, Dialogs and UI Interaction
+1. Develop an Android application implementing AppBar (Toolbar) and Options Menu.
+2. Develop an Android application demonstrating AlertDialog and custom DialogFragment.
+3. Develop an Android application implementing contextual menus and popup menus.
+
+
+AIM:To study and implement UI components in Android such as AppBar, TextView, EditText,
+Button, ImageView, Toast, and Fragment-based UI.
+
+   THEORY:Android provides a rich set of User Interface (UI) components to build interactive
+     applications.
+
+   Common UI Components
+
+    Component             Purpose
+
+    TextView               Displays text
+
+     EditText               Accepts user input
+
+     Button                 Performs an action
+
+    ImageView             Displays images
+
+    AppBar (Toolbar)      Top app bar for titles & menus
+
+    Fragment              Reusable UI section inside activity
+
+    CheckBox / RadioButton Selection inputs
+
+     Spinner              Dropdown menu
+
+    activity_main.xml (AppBar + Fragment Container)
+
+    <?xml version="1.0" encoding="utf-8"?>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+       xmlns:app="http://schemas.android.com/apk/res-auto"
+
+       android:orientation="vertical"
+
+       android:layout_width="match_parent"
+
+       android:layout_height="match_parent">
+
+       <androidx.appcompat.widget.Toolbar
+
+         android:id="@+id/toolbar"
+
+       android:layout_width="match_parent"
+
+
+      pg. 34
+
+Subject: Android Programming Practical                                           TYBScIT
+
+
+
+  android:layout_height="?attr/actionBarSize"
+
+  android:background="@color/purple_500"
+
+     android:title="UI Components Demo"
+
+     android:titleTextColor="@android:color/white"
+
+    app:titleTextAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+  <FrameLayout
+
+     android:id="@+id/frameContainer"
+
+     android:layout_width="match_parent"
+
+     android:layout_height="match_parent"/>
+
+</LinearLayout>
+
+MainActivity.java
+
+package com.example.uicomponents;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import androidx.fragment.app.FragmentTransaction;
+
+import android.os.Bundle;
+
+import androidx.appcompat.widget.Toolbar;
+
+public class MainActivity extends AppCompatActivity {
+
+  @Override
+
+  protected void onCreate(Bundle savedInstanceState) {
+
+     super.onCreate(savedInstanceState);
+
+     setContentView(R.layout.activity_main);
+
+    Toolbar toolbar = findViewById(R.id.toolbar);
+
+     setSupportActionBar(toolbar);
+
+        // Load Fragment
+
+    FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+
+     ft.replace(R.id.frameContainer, new HomeFragment());
+
+     ft.commit();
+
+  }}
+
+fragment_home.xml (UI Components)
+
+<?xml version="1.0" encoding="utf-8"?>
+ pg. 35
+
+Subject: Android Programming Practical                                           TYBScIT
+
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+  android:layout_width="match_parent"
+
+  android:layout_height="match_parent">
+
+  <LinearLayout
+
+     android:orientation="vertical"
+
+     android:padding="20dp"
+
+     android:layout_width="match_parent"
+
+     android:layout_height="wrap_content">
+
+    <ImageView
+
+       android:id="@+id/imgLogo"
+
+       android:src="@drawable/ic_launcher_foreground"
+
+       android:layout_width="120dp"
+
+       android:layout_height="120dp"
+
+       android:layout_gravity="center"/>
+
+    <TextView
+
+       android:id="@+id/txtTitle"
+
+       android:text="Enter Your Name:"
+
+       android:textSize="20sp"
+
+       android:layout_marginTop="20dp"
+
+       android:layout_width="wrap_content"
+
+       android:layout_height="wrap_content"/>
+
+     <EditText
+
+       android:id="@+id/edtName"
+
+       android:hint="Type here"
+
+       android:padding="10dp"
+
+       android:layout_width="match_parent"
+
+       android:layout_height="wrap_content"/>
+
+    <Button
+
+       android:id="@+id/btnSubmit"
+
+
+
+
+ pg. 36
+
+Subject: Android Programming Practical                                           TYBScIT
+
+
+       android:text="Submit"
+
+       android:layout_marginTop="20dp"
+
+       android:layout_width="wrap_content"
+
+       android:layout_height="wrap_content"/>
+
+  </LinearLayout>
+
+</ScrollView>
+
+HomeFragment.java
+
+package com.example.uicomponents;
+
+import android.os.Bundle;
+
+import android.view.LayoutInflater;
+
+import android.view.View;
+
+import android.view.ViewGroup;
+
+import android.widget.Button;
+
+import android.widget.EditText;
+
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+
+import androidx.annotation.Nullable;
+
+import androidx.fragment.app.Fragment;
+
+public class HomeFragment extends Fragment {
+
+  EditText edtName;
+
+  Button btnSubmit;
+
+ @Nullable
+
+ @Override
+
+  public View onCreateView(@NonNull LayoutInflater inflater,
+
+   @Nullable ViewGroup container,
+
+    @Nullable Bundle savedInstanceState) {
+
+    View view = inflater.inflate(R.layout.fragment_home, container, false);
+
+    edtName = view.findViewById(R.id.edtName);
+
+    btnSubmit = view.findViewById(R.id.btnSubmit);
+
+
+
+
+ pg. 37
+
+Subject: Android Programming Practical                                           TYBScIT
+
+
+     btnSubmit.setOnClickListener(v -> {
+
+       String name = edtName.getText().toString();
+
+       Toast.makeText(getActivity(),
+
+           "Hello " + name,
+
+          Toast.LENGTH_SHORT).show();
+
+      });
+
+     return view;
+
+  }}
+
+
+
+
+
+ pg. 38

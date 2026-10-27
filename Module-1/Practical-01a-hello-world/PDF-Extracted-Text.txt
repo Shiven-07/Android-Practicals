@@ -1,0 +1,60 @@
+     Subject: Android Programming Practical                                           TYBScIT
+
+
+                       Practical No. 1
+
+Android Basics and Resources
+     1. Develop a simple “Hello World” Android application demonstrating project creation,
+       Android Studio interface, Android components, AVD creation, and application execution.
+     2. Develop an Android application demonstrating the use of Programming Resources
+        (colors.xml, themes.xml, strings.xml, dimens.xml, drawable resources) and apply them in
+      UI components.
+     3.  Develop an Android application demonstrating complete Activity Lifecycle methods and
+       analyze execution using Logcat.
+
+       1. Aim : To print hello world
+
+     MainActivity.java
+
+     package com.example.helloworld;
+
+     import androidx.appcompat.app.AppCompatActivity;
+     import android.os.Bundle;
+
+     public class MainActivity extends AppCompatActivity {
+
+       @Override
+        protected void onCreate(Bundle savedInstanceState) {
+          super.onCreate(savedInstanceState);
+          setContentView(R.layout.activity_main);  // Loads the UI
+       }
+     }
+       activity_main.xml
+     (Located in: app → res → layout → activity_main.xml)
+
+    <?xml version="1.0" encoding="utf-8"?>
+     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+      <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+        android:text="Hello World!"
+       android:textSize="30sp" />
+     </LinearLayout>
+       2. Run the App
+             Click Run ▶
+
+
+       pg. 1
+
+Subject: Android Programming Practical                                           TYBScIT
+
+
+
+
+
+ pg. 2

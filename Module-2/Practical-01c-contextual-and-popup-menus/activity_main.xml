@@ -1,0 +1,84 @@
+<!-- Extracted from PDF; review against Original-Pages.pdf before use. -->
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+   android:orientation="vertical"
+
+  android:gravity="center"
+
+  android:layout_width="match_parent"
+
+  android:layout_height="match_parent">
+
+  <Button
+
+     android:id="@+id/btnDialog"
+
+     android:text="Open Alert Dialog"
+
+     android:layout_width="wrap_content"
+
+     android:layout_height="wrap_content"/>
+
+  <Button
+
+    android:id="@+id/btnFragmentDialog"
+
+     android:text="Open Dialog Fragment"
+
+    android:layout_marginTop="20dp"
+
+     android:layout_width="wrap_content"
+
+     android:layout_height="wrap_content"/>
+
+  <TextView
+
+
+
+
+
+
+Subject: Android Programming Practical                                           TYBScIT
+
+
+     android:id="@+id/txtContext"
+
+     android:text="Long Press Me (Context Menu)"
+
+     android:textSize="18sp"
+
+     android:padding="20dp"
+
+    android:layout_marginTop="30dp"
+
+    android:background="#DDDDDD"
+
+     android:layout_width="wrap_content"
+
+     android:layout_height="wrap_content"/>
+
+</LinearLayout>
+
+Create Menu Resource
+
+res → menu → create menu_main.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <item
+
+    android:id="@+id/menu_about"
+
+     android:title="About"/>
+
+  <item
+
+    android:id="@+id/menu_exit"
+
+     android:title="Exit"/>
+
+</menu>

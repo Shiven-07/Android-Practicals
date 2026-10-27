@@ -1,0 +1,8 @@
+<!-- Extracted from PDF; review against Original-Pages.pdf before use. -->
+File: res/values/colors.xml
+<resources>
+  <color name="appPrimary">#6200EE</color>
+  <color name="appSecondary">#03DAC5</color>
+  <color name="white">#FFFFFF</color>
+  <color name="black">#000000</color>
+</resources>

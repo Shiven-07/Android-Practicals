@@ -1,0 +1,82 @@
+<!-- Extracted from PDF; review against Original-Pages.pdf before use. -->
+<?xml version="1.0" encoding="utf-8"?>
+
+Subject: Android Programming Practical                                           TYBScIT
+
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+  android:layout_width="match_parent"
+
+  android:layout_height="match_parent">
+
+  <LinearLayout
+
+     android:orientation="vertical"
+
+     android:padding="20dp"
+
+     android:layout_width="match_parent"
+
+     android:layout_height="wrap_content">
+
+    <ImageView
+
+       android:id="@+id/imgLogo"
+
+       android:src="@drawable/ic_launcher_foreground"
+
+       android:layout_width="120dp"
+
+       android:layout_height="120dp"
+
+       android:layout_gravity="center"/>
+
+    <TextView
+
+       android:id="@+id/txtTitle"
+
+       android:text="Enter Your Name:"
+
+       android:textSize="20sp"
+
+       android:layout_marginTop="20dp"
+
+       android:layout_width="wrap_content"
+
+       android:layout_height="wrap_content"/>
+
+     <EditText
+
+       android:id="@+id/edtName"
+
+       android:hint="Type here"
+
+       android:padding="10dp"
+
+       android:layout_width="match_parent"
+
+       android:layout_height="wrap_content"/>
+
+    <Button
+
+       android:id="@+id/btnSubmit"
+
+
+
+
+
+Subject: Android Programming Practical                                           TYBScIT
+
+
+       android:text="Submit"
+
+       android:layout_marginTop="20dp"
+
+       android:layout_width="wrap_content"
+
+       android:layout_height="wrap_content"/>
+
+  </LinearLayout>
+
+</ScrollView>

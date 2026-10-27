@@ -1,0 +1,7 @@
+<!-- Extracted from PDF; review against Original-Pages.pdf before use. -->
+File: res/values/dimens.xml
+<resources>
+  <dimen name="text_large">24sp</dimen>
+  <dimen name="padding_normal">20dp</dimen>
+  <dimen name="image_size">150dp</dimen>
+</resources>

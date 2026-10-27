@@ -1,0 +1,362 @@
+     Subject: Android Programming Practical                                           TYBScIT
+
+                               Practical No. 3
+
+
+   Services, Notifications and Broadcast Receivers
+   1. Develop an Android application implementing Started and Bound Services.
+   2. Develop an Android application implementing Notifications using Notification Manager.
+   3. Develop an Android application implementing Static and Dynamic Broadcast Receivers.
+
+AIM:To study and implement Programs on Services, notification and broadcast receivers  Programs on
+Services, notification and broadcast receivers
+
+            Started Service
+
+            Notification from Service
+
+            Broadcast Receiver (BOOT_COMPLETED)
+
+            Buttons to Start/Stop Service
+
+            Notification Channel (Android 8+)
+
+    AndroidManifest.xml
+
+    <?xml version="1.0" encoding="utf-8"?>
+
+    <manifest package="com.example.servicedemo"
+
+       xmlns:android="http://schemas.android.com/apk/res/android">
+
+       <!-- Permission for Boot Completed -->
+
+       <uses-permission
+    android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+
+       <application
+
+         android:allowBackup="true"
+
+        android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
+
+          <!-- Service -->
+
+         <service android:name=".MyService"/>
+
+          <!-- Broadcast Receiver -->
+
+         <receiver android:name=".BootReceiver"
+
+            android:enabled="true"
+
+            android:exported="true">
+
+             <intent-filter>
+
+              <action android:name="android.intent.action.BOOT_COMPLETED"/>
+
+             </intent-filter>
+
+      pg. 51
+
+Subject: Android Programming Practical                                           TYBScIT
+
+
+     </receiver>
+
+     <!-- Main Activity -->
+
+     <activity android:name=".MainActivity">
+
+        <intent-filter>
+
+         <action android:name="android.intent.action.MAIN"/>
+
+         <category android:name="android.intent.category.LAUNCHER"/>
+
+        </intent-filter>
+
+     </activity>
+
+  </application>
+
+</manifest>
+
+activity_main.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+   android:orientation="vertical"
+
+  android:gravity="center"
+
+  android:padding="20dp"
+
+  android:layout_width="match_parent"
+
+  android:layout_height="match_parent">
+
+  <Button
+
+     android:id="@+id/btnStart"
+
+     android:text="Start Service"
+
+     android:layout_width="match_parent"
+
+     android:layout_height="wrap_content"/>
+
+  <Button
+
+     android:id="@+id/btnStop"
+
+     android:text="Stop Service"
+
+    android:layout_marginTop="10dp"
+
+     android:layout_width="match_parent"
+
+     android:layout_height="wrap_content"/>
+
+
+
+
+ pg. 52
+
+Subject: Android Programming Practical                                           TYBScIT
+
+
+  <Button
+
+     android:id="@+id/btnNotify"
+
+     android:text="Send Notification"
+
+    android:layout_marginTop="10dp"
+
+     android:layout_width="match_parent"
+
+     android:layout_height="wrap_content"/>
+
+</LinearLayout>
+
+MainActivity.java
+
+package com.example.servicedemo;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+
+import android.os.Bundle;
+
+import android.widget.Button;
+
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
+
+  Button btnStart, btnStop, btnNotify;
+
+  @Override
+
+  protected void onCreate(Bundle savedInstanceState) {
+
+     super.onCreate(savedInstanceState);
+
+     setContentView(R.layout.activity_main);
+
+     btnStart = findViewById(R.id.btnStart);
+
+    btnStop = findViewById(R.id.btnStop);
+
+     btnNotify = findViewById(R.id.btnNotify);
+
+       // Start Service
+
+     btnStart.setOnClickListener(v -> {
+
+        Intent intent = new Intent(this, MyService.class);
+
+        startService(intent);
+
+       Toast.makeText(this, "Service Started", Toast.LENGTH_SHORT).show();
+
+     })
+
+
+
+
+ pg. 53
+
+Subject: Android Programming Practical                                           TYBScIT
+
+
+       // Stop Service
+
+     btnStop.setOnClickListener(v -> {
+
+        Intent intent = new Intent(this, MyService.class);
+
+        stopService(intent);
+
+       Toast.makeText(this, "Service Stopped", Toast.LENGTH_SHORT).show();
+
+      });
+
+       // Send Notification via Service
+
+     btnNotify.setOnClickListener(v -> {
+
+        Intent intent = new Intent(this, MyService.class);
+
+      intent.setAction("SEND_NOTIFICATION");
+
+        startService(intent);
+
+      });
+
+  }
+
+}
+
+MyService.java
+
+package com.example.servicedemo;
+
+import android.app.NotificationChannel;
+
+import android.app.NotificationManager;
+
+import android.app.Service;
+
+import android.content.Intent;
+
+import android.os.Build;
+
+import android.os.IBinder;
+
+import androidx.core.app.NotificationCompat;
+
+public class MyService extends Service {
+
+  private static final String CHANNEL_ID = "ServiceChannel";
+
+ @Override
+
+  public int onStartCommand(Intent intent, int flags, int startId) {
+
+if (intent != null && "SEND_NOTIFICATION".equals(intent.getAction())) {
+
+       sendNotification() }
+
+
+
+
+ pg. 54
+
+Subject: Android Programming Practical                                           TYBScIT
+
+
+ return START_STICKY;
+
+ }
+
+ private void sendNotification() {
+
+ NotificationManager manager =
+
+   (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+
+  // Notification Channel (For Android 8+)
+
+       if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+
+       NotificationChannel channel = new NotificationChannel(
+
+        CHANNEL_ID,
+
+            "Service Channel",
+
+          NotificationManager.IMPORTANCE_DEFAULT);
+
+       manager.createNotificationChannel(channel);
+
+    }
+
+  NotificationCompat.Builder builder =
+
+       new NotificationCompat.Builder(this, CHANNEL_ID)
+
+               .setContentTitle("Service Notification")
+
+              .setContentText("This is a Notification from Service")
+
+               .setSmallIcon(android.R.drawable.ic_dialog_info)
+
+               .setAutoCancel(true);
+
+  manager.notify(1, builder.build());
+
+  }
+
+ @Override
+
+  public IBinder onBind(Intent intent) {
+
+     return null;
+
+  }}
+
+BootReceiver.java
+
+package com.example.servicedemo;
+
+import android.content.BroadcastReceiver;
+
+import android.content.Context;
+
+
+
+
+ pg. 55
+
+Subject: Android Programming Practical                                           TYBScIT
+
+
+import android.content.Intent;
+
+import android.widget.Toast;
+
+public class BootReceiver extends BroadcastReceiver {
+
+  @Override
+
+  public void onReceive(Context context, Intent intent) {
+
+if (Intent.ACTION_BOOT_COMPLETED.equals(intent.getAction())) {
+
+   Toast.makeText(context,
+
+        "Device Booted - Broadcast Received",
+
+          Toast.LENGTH_LONG).show();
+
+  // Optional: Start Service Automatically
+
+        Intent serviceIntent = new Intent(context, MyService.class);
+
+        context.startService(serviceIntent);
+
+    }
+
+  }}
+
+
+
+
+
+ pg. 56

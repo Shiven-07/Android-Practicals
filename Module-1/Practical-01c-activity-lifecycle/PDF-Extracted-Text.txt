@@ -1,0 +1,133 @@
+     Subject: Android Programming Practical                                           TYBScIT
+
+3. Develop an Android application demonstrating complete Activity Lifecycle methods and
+analyze execution using Logcat.
+
+AIM: To develop an Android application that demonstrates all the Activity Lifecycle methods and
+analyze their execution using Logcat.
+THEORY
+An Activity is a single screen in an Android application. Android manages the lifecycle of an activity
+through a series of callback methods. These methods are automatically invoked depending on the
+activity's state, such as launching, pausing, stopping, restarting, or destroying.
+Android Activity Lifecycle Methods
+    1.  onCreate()
+         o  Called when the activity is created.
+         o  Used for initialization and loading the UI.
+    2.  onStart()
+         o  Called when the activity becomes visible to the user.
+    3. onResume()
+         o  Called when the activity comes to the foreground and is ready for user interaction.
+    4.  onPause()
+         o  Called when another activity partially covers the current activity.
+    5.  onStop()
+         o  Called when the activity is no longer visible.
+    6.  onRestart()
+         o  Called after the activity has been stopped and before it starts again.
+    7.  onDestroy()
+         o  Called before the activity is destroyed.
+
+MainActivity.java
+
+package com.example.lifecycleapp;
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.util.Log;
+public class MainActivity extends AppCompatActivity {
+
+  String TAG = "ActivityLifecycle";
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+     super.onCreate(savedInstanceState);
+     setContentView(R.layout.activity_main);
+    Log.d(TAG, "onCreate() called");
+  }
+
+  @Override
+  protected void onStart() {
+     super.onStart();
+    Log.d(TAG, "onStart() called");
+  }
+
+  @Override
+  protected void onResume() {
+    super.onResume();
+    Log.d(TAG, "onResume() called");
+  }
+
+
+      pg. 6
+
+     Subject: Android Programming Practical                                           TYBScIT
+
+  @Override
+  protected void onPause() {
+     super.onPause();
+    Log.d(TAG, "onPause() called");
+  }
+
+  @Override
+  protected void onStop() {
+     super.onStop();
+    Log.d(TAG, "onStop() called");
+  }
+
+  @Override
+  protected void onRestart() {
+     super.onRestart();
+    Log.d(TAG, "onRestart() called");
+  }
+
+  @Override
+  protected void onDestroy() {
+     super.onDestroy();
+    Log.d(TAG, "onDestroy() called");
+  }
+}
+
+activity_main.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:gravity="center"
+  android:orientation="vertical">
+ <TextView
+   android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:text="Android Activity Lifecycle Demo"
+     android:textSize="22sp"
+     android:textStyle="bold"/>
+</LinearLayout>
+
+AndroidManifest.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  package="com.example.lifecycleapp">
+  <application
+     android:allowBackup="true"
+     android:label="LifecycleApp"
+     android:supportsRtl="true"
+    android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
+     <activity android:name=".MainActivity">
+        <intent-filter>
+         <action android:name="android.intent.action.MAIN"/>
+         <category android:name="android.intent.category.LAUNCHER"/>
+
+      pg. 7
+
+     Subject: Android Programming Practical                                           TYBScIT
+
+        </intent-filter>
+     </activity>
+  </application>
+</manifest>
+
+    Output
+
+
+
+
+
+      pg. 8

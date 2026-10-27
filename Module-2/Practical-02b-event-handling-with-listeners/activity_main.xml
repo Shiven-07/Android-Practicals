@@ -1,0 +1,97 @@
+<!-- Extracted from PDF; review against Original-Pages.pdf before use. -->
+<?xml version="1.0" encoding="utf-8"?>
+
+ <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+Subject: Android Programming Practical                                           TYBScIT
+
+
+android:layout_width="match_parent"
+
+
+  android:layout_height="match_parent">
+
+  <LinearLayout
+
+     android:orientation="vertical"
+
+     android:padding="20dp"
+
+     android:layout_width="match_parent"
+
+     android:layout_height="wrap_content">
+
+    <TextView
+
+       android:text="Intents & Events Demo"
+
+       android:textSize="22sp"
+
+       android:textStyle="bold"
+
+       android:layout_width="wrap_content"
+
+       android:layout_height="wrap_content"/>
+
+     <!-- Intent Button -->
+
+    <Button
+
+       android:id="@+id/btnIntent"
+
+       android:text="Open Second Activity"
+
+       android:layout_marginTop="20dp"
+
+       android:layout_width="match_parent"
+
+       android:layout_height="wrap_content"/>
+
+     <!-- Toast Button -->
+
+    <Button
+
+       android:id="@+id/btnToast"
+
+       android:text="Show Toast Message"
+
+       android:layout_marginTop="10dp"
+
+       android:layout_width="match_parent"
+
+       android:layout_height="wrap_content"/>
+
+     <!-- Long Click Button -->
+
+    <Button
+
+       android:id="@+id/btnLongClick"
+
+
+Subject: Android Programming Practical                                           TYBScIT
+
+
+       android:text="Long Press Me"
+
+       android:layout_marginTop="10dp"
+
+       android:layout_width="match_parent"
+
+       android:layout_height="wrap_content"/>
+
+     <!-- ListView -->
+
+    <ListView
+
+       android:id="@+id/listView"
+
+       android:layout_marginTop="20dp"
+
+       android:layout_width="match_parent"
+
+       android:layout_height="wrap_content"/>
+
+  </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,58 @@
+<!-- Extracted from PDF; review against Original-Pages.pdf before use. -->
+<?xml version="1.0" encoding="utf-8"?>
+    <ScrollView
+       xmlns:android="http://schemas.android.com/apk/res/android"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+      android:padding="16dp">
+      <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+          android:orientation="vertical">
+        <TextView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+            android:text="Indian Knowledge System"
+           android:textSize="28sp"
+            android:textStyle="bold"
+            android:gravity="center"
+           android:padding="10dp"/>
+        <TextView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:textSize="18sp"
+           android:lineSpacingExtra="8dp"
+            android:text="Indian Knowledge System (IKS) is a traditional system of knowledge
+    developed in India over thousands of years.
+
+      It includes knowledge related to science, mathematics, medicine, astronomy, philosophy, literature,
+      art, architecture and education.
+
+    Mathematics in ancient India contributed concepts such as zero, decimal notation and various
+    mathematical methods.
+
+    Ayurveda is an ancient Indian system of medicine that focuses on maintaining health and treating
+     diseases through natural methods.
+
+    Indian astronomy developed detailed methods for observing celestial bodies and calculating time
+    and planetary movements.
+
+   Yoga is another important contribution of Indian knowledge. It promotes physical fitness,
+     concentration, mental well-being and discipline.
+
+    Indian Knowledge Systems are also useful for modern education because they encourage logical
+     thinking, problem solving, creativity and a connection between traditional knowledge and modern
+    technology.
+
+    Information Technology students can study IKS to understand how traditional knowledge can be
+     preserved, digitized and made available using modern computer technologies.
+
+
+     Subject: Android Programming Practical                                           TYBScIT
+
+
+    Thus, IKS represents an important part of India's intellectual and cultural heritage." />
+
+      </LinearLayout>
+
+</ScrollView>

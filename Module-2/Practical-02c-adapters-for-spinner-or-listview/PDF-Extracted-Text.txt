@@ -1,0 +1,334 @@
+ Subject: Android Programming Practical                                           TYBScIT
+
+                            Practical No. 2
+
+
+ Intents, Events and Listeners
+1. Develop an Android application implementing Explicit and Implicit Intents.
+2. Develop an Android application demonstrating Event Handling using Listeners
+3. Develop an Android application using Adapters to populate Spinner or ListView
+  dynamically.
+
+AIM:To study and implement Programs on Intents, Events, Listeners and Adapters
+
+        Explicit Intent
+
+       Button Click Event
+
+       Long Click Listener
+
+       ListView with ArrayAdapter
+
+        Toast Messages
+
+ AndroidManifest.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+
+ <manifest package="com.example.intentdemo"
+
+   xmlns:android="http://schemas.android.com/apk/res/android">
+
+   <application
+
+     android:allowBackup="true"
+
+     android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
+
+      <activity android:name=".SecondActivity"></activity>
+
+      <activity android:name=".MainActivity">
+
+         <intent-filter>
+
+          <action android:name="android.intent.action.MAIN"/>
+
+          <category android:name="android.intent.category.LAUNCHER"/>
+
+         </intent-filter>
+
+      </activity>
+
+   </application>
+
+ </manifest>
+
+ activity_main.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+
+ <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+ pg. 45
+
+Subject: Android Programming Practical                                           TYBScIT
+
+
+android:layout_width="match_parent"
+
+
+  android:layout_height="match_parent">
+
+  <LinearLayout
+
+     android:orientation="vertical"
+
+     android:padding="20dp"
+
+     android:layout_width="match_parent"
+
+     android:layout_height="wrap_content">
+
+    <TextView
+
+       android:text="Intents & Events Demo"
+
+       android:textSize="22sp"
+
+       android:textStyle="bold"
+
+       android:layout_width="wrap_content"
+
+       android:layout_height="wrap_content"/>
+
+     <!-- Intent Button -->
+
+    <Button
+
+       android:id="@+id/btnIntent"
+
+       android:text="Open Second Activity"
+
+       android:layout_marginTop="20dp"
+
+       android:layout_width="match_parent"
+
+       android:layout_height="wrap_content"/>
+
+     <!-- Toast Button -->
+
+    <Button
+
+       android:id="@+id/btnToast"
+
+       android:text="Show Toast Message"
+
+       android:layout_marginTop="10dp"
+
+       android:layout_width="match_parent"
+
+       android:layout_height="wrap_content"/>
+
+     <!-- Long Click Button -->
+
+    <Button
+
+       android:id="@+id/btnLongClick"
+
+ pg. 46
+
+Subject: Android Programming Practical                                           TYBScIT
+
+
+       android:text="Long Press Me"
+
+       android:layout_marginTop="10dp"
+
+       android:layout_width="match_parent"
+
+       android:layout_height="wrap_content"/>
+
+     <!-- ListView -->
+
+    <ListView
+
+       android:id="@+id/listView"
+
+       android:layout_marginTop="20dp"
+
+       android:layout_width="match_parent"
+
+       android:layout_height="wrap_content"/>
+
+  </LinearLayout>
+
+</ScrollView>
+
+MainActivity.java
+
+package com.example.intentdemo;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+
+import android.os.Bundle;
+
+import android.view.View;
+
+import android.widget.ArrayAdapter;
+
+import android.widget.Button;
+
+import android.widget.ListView;
+
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
+
+  Button btnIntent, btnToast, btnLongClick;
+
+  ListView listView;
+
+   String[] items = {"Item 1", "Item 2", "Item 3", "Item 4", "Item 5"};
+
+  @Override
+
+  protected void onCreate(Bundle savedInstanceState) {
+
+     super.onCreate(savedInstanceState);
+
+
+
+
+ pg. 47
+
+Subject: Android Programming Practical                                           TYBScIT
+
+
+     setContentView(R.layout.activity_main);
+
+     btnIntent = findViewById(R.id.btnIntent);
+
+     btnToast = findViewById(R.id.btnToast);
+
+    btnLongClick = findViewById(R.id.btnLongClick);
+
+     listView = findViewById(R.id.listView);
+
+       // Explicit Intent
+
+     btnIntent.setOnClickListener(v -> {
+
+        Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+
+        startActivity(intent);
+
+      });
+
+       // Click Event Listener
+
+     btnToast.setOnClickListener(v ->
+
+         Toast.makeText(MainActivity.this,
+
+             "Button Clicked!",
+
+            Toast.LENGTH_SHORT).show());
+
+       // Long Click Listener
+
+    btnLongClick.setOnLongClickListener(v -> {
+
+       Toast.makeText(MainActivity.this,
+
+          "Long Press Detected!",
+
+          Toast.LENGTH_SHORT).show();
+
+        return true;
+
+      });
+
+       // Adapter Example
+
+    ArrayAdapter<String> adapter =
+
+       new ArrayAdapter<>(this,
+
+               android.R.layout.simple_list_item_1,
+
+               items);
+
+
+
+     listView.setAdapter(adapter);
+
+
+
+
+ pg. 48
+
+Subject: Android Programming Practical                                           TYBScIT
+
+
+       // List Item Click Event
+
+     listView.setOnItemClickListener((parent, view, position, id) ->
+
+         Toast.makeText(MainActivity.this,
+
+               "Selected: " + items[position],
+
+            Toast.LENGTH_SHORT).show()) }`}
+
+activity_second.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+  android:gravity="center"
+
+  android:layout_width="match_parent"
+
+  android:layout_height="match_parent">
+
+  <TextView
+
+    android:text="Welcome to Second Activity!"
+
+     android:textSize="22sp"
+
+     android:textStyle="bold"
+
+     android:layout_width="wrap_content"
+
+     android:layout_height="wrap_content"/>
+
+</LinearLayout>
+
+SecondActivity.java
+
+package com.example.intentdemo;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+
+public class SecondActivity extends AppCompatActivity {
+
+  @Override
+
+  protected void onCreate(Bundle savedInstanceState) {
+
+     super.onCreate(savedInstanceState);
+
+     setContentView(R.layout.activity_second);
+
+  }
+
+}
+
+
+
+
+ pg. 49
+
+Subject: Android Programming Practical                                           TYBScIT
+
+
+
+
+
+ pg. 50

@@ -1,0 +1,28 @@
+<!-- Extracted from PDF; review against Original-Pages.pdf before use. -->
+File: res/values/styles.xml
+
+
+
+
+
+
+Subject: Android Programming Practical                                           TYBScIT
+
+
+<resources>
+  <style name="AppTheme" parent="Theme.MaterialComponents.DayNight">
+    <item name="colorPrimary">@color/appPrimary</item>
+    <item name="colorAccent">@color/appSecondary</item>
+    <item name="android:padding">@dimen/padding_normal</item>
+   </style>
+</resources>
+5. Drawable Image
+Place any image (e.g., logo.png) inside:
+app → res → drawable/
+6. Drawable Shape (rounded_box.xml)
+File: res/drawable/rounded_box.xml
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+  android:shape="rectangle">
+  <solid android:color="@color/appSecondary" />
+  <corners android:radius="12dp" />
+</shape>

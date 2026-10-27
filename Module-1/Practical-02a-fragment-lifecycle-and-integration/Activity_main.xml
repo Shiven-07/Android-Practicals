@@ -1,0 +1,49 @@
+<!-- Extracted from PDF; review against Original-Pages.pdf before use. -->
+<?xml version="1.0" encoding="utf-8"?>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+       android:layout_width="match_parent"
+
+       android:layout_height="match_parent"
+
+       android:orientation="vertical"
+
+
+Subject: Android Programming Practical                                           TYBScIT
+
+  android:padding="20dp">
+
+  <Button
+
+    android:id="@+id/btnA"
+
+     android:layout_width="match_parent"
+
+     android:layout_height="wrap_content"
+
+     android:text="Load Fragment A"/>
+
+  <Button
+
+    android:id="@+id/btnB"
+
+     android:layout_width="match_parent"
+
+     android:layout_height="wrap_content"
+
+     android:text="Load Fragment B"
+
+    android:layout_marginTop="10dp"/>
+
+  <FrameLayout
+
+     android:id="@+id/fragmentContainer"
+
+     android:layout_width="match_parent"
+
+     android:layout_height="match_parent"
+
+    android:layout_marginTop="20dp"/>
+
+</LinearLayout>

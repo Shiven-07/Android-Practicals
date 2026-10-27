@@ -1,0 +1,125 @@
+     Subject: Android Programming Practical                                           TYBScIT
+
+                              Practical No. 5
+
+Adapter Based Views
+1. Develop an Android application using ListView with ArrayAdapter and implement item click
+handling.
+2. Develop an Android application using GridView with Custom Adapter and image selection
+handling.
+3. Develop an Android application implementing RecyclerView as a modern alternative to
+ListView.
+
+1. ListView
+
+  activity_main.xml
+
+    <?xml version="1.0" encoding="utf-8"?>
+
+      <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+       android:layout_width="match_parent"
+
+       android:layout_height="match_parent"
+
+       android:orientation="vertical"
+
+      android:padding="20dp">
+
+      <TextView
+
+         android:layout_width="match_parent"
+
+         android:layout_height="wrap_content"
+
+         android:text="� Course List"
+
+         android:textSize="28sp"
+
+         android:textStyle="bold"
+
+         android:gravity="center"
+
+         android:padding="15dp" />
+
+      <ListView
+
+         android:id="@+id/listView"
+
+         android:layout_width="match_parent"
+
+         android:layout_height="match_parent" />
+
+ </LinearLayout>
+
+
+
+
+
+      pg. 25
+
+     Subject: Android Programming Practical                                           TYBScIT
+
+
+
+MainActivity.java
+    package com.example.listviewdemo;
+
+    import android.os.Bundle;
+    import android.widget.ArrayAdapter;
+    import android.widget.ListView;
+    import android.widget.Toast;
+
+    import androidx.appcompat.app.AppCompatActivity;
+
+    public class MainActivity extends AppCompatActivity {
+
+      ListView listView;
+
+       String[] courses = {
+           "B.Sc. Information Technology",
+           "B.Sc. Computer Science",
+         "BCA",
+         "MCA",
+          "M.Sc. Computer Science",
+          "M.Sc. Information Technology"
+        };
+
+      @Override
+       protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+
+         setContentView(R.layout.activity_main);
+
+         listView = findViewById(R.id.listView);
+
+         ArrayAdapter<String> adapter = new ArrayAdapter<>(
+                 this,
+              android.R.layout.simple_list_item_1,
+              courses
+             );
+
+         listView.setAdapter(adapter);
+
+         listView.setOnItemClickListener((parent, view, position, id) -> {
+
+            String selectedCourse = courses[position];
+
+           Toast.makeText(
+                 MainActivity.this,
+                 "Selected: " + selectedCourse,
+            Toast.LENGTH_SHORT
+            ).show();
+           });
+      }
+}
+
+      pg. 26
+
+Subject: Android Programming Practical                                           TYBScIT
+
+
+
+
+
+ pg. 27
